@@ -8,3 +8,4 @@
 - plot_histogram.py：遍历文件夹的图片，画出三个通道的直方图
 - changelabel_123_imageLabeler.py：把标签从单通道转到三通道（imageLabeler标完的）（x）
 - find_edge.py：找到图像的边界，用来找项目那个的白边（x）
+- delete_edge.py：把项目图像的白边替换成黑边，还有去除标签超出的边界（x）
