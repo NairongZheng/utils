@@ -15,3 +15,4 @@
     - 计算类别占比
     - 用matplotlib画饼图
     - 用pyecharts画饼图
+- image_with_mask.py：把标签贴到图片上去
