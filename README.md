@@ -10,3 +10,8 @@
 - find_edge.py：找到图像的边界，用来找项目那个的白边（x）
 - delete_edge.py：把项目图像的白边替换成黑边，还有去除标签超出的边界（x）
 - delete_edge.m：同delete_edge.py，其中有的图用py会显示损坏，用m就可以，m真好用啊（x）
+- plot_pie.py：统计标签类别的占比，并画饼图
+    - 计算类别数量
+    - 计算类别占比
+    - 用matplotlib画饼图
+    - 用pyecharts画饼图
