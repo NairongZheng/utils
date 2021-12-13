@@ -8,6 +8,9 @@
 import os
 from PIL import Image
 import cv2
+import numpy as np
+
+Image.MAX_IMAGE_PIXELS = None
 
 image_path = r'E:\try\try\ya_S.tif'
 label_path = r'E:\try\try\ys_label.png'
@@ -17,12 +20,15 @@ def main():
     """
         主函数
     """
-    image = cv2.imread(image_path)
+    # image = cv2.imread(image_path)
+    
+    # 图像太大的画，cv2没办法打开，就用PIL
+    image = Image.open(image_path)
+    image = np.asarray(image)
+    image = image[:,:,::-1]
     label = cv2.imread(label_path)
     combine = cv2.addWeighted(image, 0.7, label, 0.3, 0)
     cv2.imwrite(save_path, combine)
-    pass
-
 
 if __name__ == '__main__':
     main()
