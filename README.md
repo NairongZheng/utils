@@ -1,5 +1,5 @@
 # utils
-一些常用的工具函数（标x的表示比较局限的特定任务用的）
+一些常用的工具函数（标x的表示比较局限的特定任务用的, *可以看看）
 - stores_prints_param.py：训练过程中用来记录和打印信息的方法
 - cal_ConfusionMatrix_indicators.py：计算混淆矩阵和语义分割的一些指标
 - simple_gdal_1.py：简单的gdal的使用
@@ -16,4 +16,6 @@
     - 计算类别占比
     - 用matplotlib画饼图
     - 用pyecharts画饼图
-- image_with_mask.py：把标签贴到图片上去
+- image_with_mask.py：把标签叠加到图片上去
+- generate_test_dataset.py：从图片和标签截取区域作为测试集（x*）
+    - zip
