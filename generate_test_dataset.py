@@ -38,6 +38,7 @@ def parse_arge():
     # parser.add_argument('--points', help='the coordinates (x, y) of the upper left corner of the test area (Ka)',
     #                         default=np.array([[1398., 6158.], [2737., 10477.], [7173., 9418.], 
     #                                             [12947., 12217.], [13426., 1279.], [4295., 3539.]]))
+
     # # 江苏射阳
     # parser.add_argument('--points', help='the coordinates (x, y) of the upper left corner of the test area (Ka)',
     #                         default=np.array([[1198., 7995.], [3620., 449.], [5268., 13217.], [9886., 10343.], 
@@ -47,7 +48,7 @@ def parse_arge():
     parser.add_argument('--points', help='the coordinates (x, y) of the upper left corner of the test area (Ka)',
                             default=np.array([[6150., 1102.], [690., 2445.], [2718., 1306.]]))
 
-    parser.add_argument('--test_size', help='the size of the test regions (Ka)', default=1024)
+    parser.add_argument('--test_size', help='the size of the test regions', default=1024)
 
     args = parser.parse_args()
     return args
@@ -146,9 +147,9 @@ def crop_test(args, images_and_labels):
         save_test_path = os.path.join(args.save_path, 'test', wave_band)
         if not os.path.exists(save_test_path):
             os.makedirs(save_test_path)
-        cv2.imwrite(os.path.join(save_test_path, '{}_{}_{}_label.tif'.format(args.region, wave_band, i + 1)), test_label)
+        cv2.imwrite(os.path.join(save_test_path, '{}_{}_{}_label.png'.format(args.region, wave_band, i + 1)), test_label)
         label[y:y + size, x:x + size, :] = 255
-    cv2.imwrite(os.path.join(args.save_path, 'train', '{}_{}_label.tif'.format(args.region, wave_band)), label)
+    cv2.imwrite(os.path.join(args.save_path, 'train', '{}_{}_label.png'.format(args.region, wave_band)), label)
 
 def main():
     """
