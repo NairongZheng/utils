@@ -20,3 +20,4 @@
 - generate_test_dataset.py：从图片和标签截取区域作为测试集（x*）
     - zip
     - generate_test_dataset_x.m：还是因为py有的图太大写了损坏，所以有一个用m写（xx）
+- cutting_images.py：切图
