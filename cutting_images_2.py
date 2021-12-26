@@ -83,7 +83,7 @@ def pic_cutting(args, images):
                     small_pic = img[row_start:row_end, col_start:col_end, :]
                 elif args.channels == 1:
                     small_pic = img[row_start:row_end, col_start:col_end]
-                small_name = image_name + '_' + str(id_hang).rjust(3, '0') + 'row_' + str(id_lie).rjust(3, '0') + 'col' + ext
+                small_name = 'image' + str(i + 1).rjust(3, '0') + '_' + str(id_hang).rjust(3, '0') + 'row_' + str(id_lie).rjust(3, '0') + 'col' + ext
                 small_pic = Image.fromarray(np.uint8(small_pic))
                 if args.if_cmap:
                     small_pic.putpalette(args.cmap)
