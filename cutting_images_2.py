@@ -55,7 +55,7 @@ def pic_cutting(args, images):
     save_path = args.save_path
     if not os.path.exists(save_path):
         os.makedirs(save_path)
-    for image in images:
+    for ii, image in enumerate(images):
         image_names = os.path.split(image)[1]
         image_name, ext = os.path.splitext(image_names)
         img = Image.open(image)
@@ -83,7 +83,7 @@ def pic_cutting(args, images):
                     small_pic = img[row_start:row_end, col_start:col_end, :]
                 elif args.channels == 1:
                     small_pic = img[row_start:row_end, col_start:col_end]
-                small_name = 'image' + str(i + 1).rjust(3, '0') + '_' + str(id_hang).rjust(3, '0') + 'row_' + str(id_lie).rjust(3, '0') + 'col' + ext
+                small_name = 'image' + str(ii + 1).rjust(3, '0') + '_' + str(id_hang).rjust(3, '0') + 'row_' + str(id_lie).rjust(3, '0') + 'col' + ext
                 small_pic = Image.fromarray(np.uint8(small_pic))
                 if args.if_cmap:
                     small_pic.putpalette(args.cmap)
