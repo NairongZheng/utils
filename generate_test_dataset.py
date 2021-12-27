@@ -16,7 +16,7 @@ from tqdm import tqdm
 
 Image.MAX_IMAGE_PIXELS = None
 
-def parse_arge():
+def parse_args():
     """
         参数设置:
         海南万宁:
@@ -155,7 +155,7 @@ def main():
     """
         主函数
     """
-    args = parse_arge()
+    args = parse_args()
     images = glob.glob(os.path.join(args.image_and_laebl_path, '*.tif'))
     labels = glob.glob(os.path.join(args.image_and_laebl_path, '*.png'))
     images.sort()
