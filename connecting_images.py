@@ -91,7 +91,7 @@ def main():
     """
         主函数
     """
-    args = parse_arge()
+    args = parse_args()
     args.cmap = get_cmap()
     img_con(args)
 
