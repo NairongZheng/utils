@@ -19,7 +19,7 @@ label_mapping = {0:[0,0,255], 1:[139,0,0], 2:[83,134,139],
                 6:[0,139,0], 7:[189,183,107], 8:[178,34,34]}
 n_labels = len(label_mapping)
 
-def parse_arge():
+def parse_args():
     """
         参数设置
     """
@@ -97,7 +97,7 @@ def main():
     """
         主函数
     """
-    args = parse_arge()
+    args = parse_args()
     args.cmap = get_cmap()
     images = glob.glob(os.path.join(args.path, '*{}'.format(args.ext)))
     pic_cutting(args, images)
