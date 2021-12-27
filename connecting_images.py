@@ -18,7 +18,7 @@ label_mapping = {0:[0,0,255], 1:[139,0,0], 2:[83,134,139],
                 6:[0,139,0], 7:[189,183,107], 8:[178,34,34]}
 n_labels = len(label_mapping)
 
-def parse_arge():
+def parse_args():
     """
         参数设置
     """
