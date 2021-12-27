@@ -15,7 +15,7 @@ from tqdm import tqdm
 
 Image.MAX_IMAGE_PIXELS = None
 
-def parse_arge():
+def parse_args():
     """
         参数设置
     """
@@ -69,7 +69,7 @@ def main():
     """
         主函数
     """
-    args = parse_arge()
+    args = parse_args()
     wave_band = args.wave_band
     args.train_path = os.path.join(args.path, wave_band, 'train')
     img_save_path = os.path.join(args.path, wave_band, 'img_train_512')
