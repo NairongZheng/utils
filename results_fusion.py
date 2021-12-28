@@ -41,7 +41,7 @@ def parse_args():
     """
     parser = argparse.ArgumentParser(description='the fusion of all bands')
     parser.add_argument('--path', help='the path of all bands outputs', default=r'E:\python_code\yyjf\outputs\w18')
-    parser.add_argument('--save_path', help='the path of the fusion results', default=r'E:\try\try')
+    parser.add_argument('--save_path', help='the path of the fusion results', default=r'E:\python_code\yyjf\outputs\w18\w18_fusion\0.5-0.5')
     parser.add_argument('--bands', help='the used bands', default=None)
     parser.add_argument('--img_size', help='the size of final results', default=2048)
 
@@ -62,7 +62,11 @@ def img_resize(args, img, mode=cv2.INTER_LINEAR):
 def fusion(new_mask, c_img, ka_img, s_img, sxz_img):
     """
         融合的函数
-        water > plantingarea > farms > vegetation > industry > resident > baresoil > road > other
+        max_iou: water>plantingarea>farms>vegetation>industry>residential>baresoil>road>other
+        dif: farms>other>water>residential>industry>road>baresoil>vegetation>plantingarea
+        0.3/0.7: farms>water>residential>industry>road>plantingarea>other>vegetation>baresoil
+        0.7/0.3: farms>water>plantingarea>industry>residential>vegetation>baresoil>road>other
+        0.5/0.5: farms>water>industry>residential>plantingarea>road>vegetation>baresoil>other
     """
     water = np.where(ka_img == 0)
     baresoil = np.where(ka_img == 1)
@@ -73,14 +77,14 @@ def fusion(new_mask, c_img, ka_img, s_img, sxz_img):
     plantingarea = np.where(ka_img == 6)
     other = np.where(sxz_img == 7)
     farms = np.where(s_img == 8)
-
+ 
     new_mask[other] = 7
-    new_mask[road] = 2
     new_mask[baresoil] = 1
+    new_mask[vegetation] = 4
+    new_mask[road] = 2
+    new_mask[plantingarea] = 6
     new_mask[resident] = 5
     new_mask[industry] = 3
-    new_mask[vegetation] = 4
-    new_mask[plantingarea] = 6
     new_mask[water] = 0
     new_mask[farms] = 8
 
