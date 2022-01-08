@@ -65,6 +65,14 @@ def Frequency_Weighted_Intersection_over_Union(confusion_matrix):
     FWIoU = (freq[freq > 0] * iu[freq > 0]).sum()       # 有没有大于0其实无所谓,反正0乘了啥也是0,这么写是为了防止nan？
     return FWIoU
 
+def Kappa(confusion_matrix):
+    pe_rows = np.sum(confusion_matrix, axis=0)
+    pe_cols = np.sum(confusion_matrix, axis=1)
+    sum_total = sum(pe_cols)
+    pe = np.dot(pe_rows, pe_cols) / float(sum_total ** 2)
+    po = np.trace(confusion_matrix) / float(sum_total)          # np.trace:对对角线求和
+    return (po - pe) / (1 - pe)
+
 def change_channel(label):
     label_mask = np.zeros((label.shape[0], label.shape[1]))
     for k, v in label_mapping.items():
@@ -92,11 +100,14 @@ def main():
         # miou = _Class_IOU(confusion_matrix_all)
         (miou, iou) = meanIntersectionOverUnion(confusion_matrix_all)
         fwiou = Frequency_Weighted_Intersection_over_Union(confusion_matrix_all)
+        kappa = Kappa(confusion_matrix_all)
         # acc = np.diag(confusion_matrix).sum() / confusion_matrix.sum()
 
     print('confusion_matrix_all is:\n', confusion_matrix_all)
-    print('miou is:{}, and iou is{}:'.format(miou, iou))
+    print('iou is:', iou)
+    print('miou is:', miou)
     print('fwiou is:', fwiou)
+    print('Kappa is:', kappa)
     print('acc is:', np.diag(confusion_matrix_all).sum() / confusion_matrix_all.sum())
 
 if __name__ == '__main__':
