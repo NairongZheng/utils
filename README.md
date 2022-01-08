@@ -2,6 +2,7 @@
 一些常用的工具函数（标x的表示比较局限的特定任务用的, *可以看看）
 - stores_prints_param.py：训练过程中用来记录和打印信息的方法
 - cal_ConfusionMatrix_indicators.py：计算混淆矩阵和语义分割的一些指标
+- cal_ConfusionMatrix_indicators_2.py：计算混淆矩阵和语义分割的一些指标2（用这个）
 - simple_gdal_1.py：简单的gdal的使用
 - simple_gdal_2.py：用gdal计算图像的经纬度
 - gengif.m：用文件夹中的图片生成gif图
