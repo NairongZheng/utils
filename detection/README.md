@@ -1,0 +1,1 @@
+- vocxml2json.py：将voc的xml转成json格式（xml与json使用）
