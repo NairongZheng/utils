@@ -1,5 +1,6 @@
 # utils
 一些常用的工具函数（标x的表示比较局限的特定任务用的, *可以看看）
+- divide_data.py：划分数据集
 - stores_prints_param.py：训练过程中用来记录和打印信息的方法
 - cal_ConfusionMatrix_indicators.py：计算混淆矩阵和语义分割的一些指标
 - cal_ConfusionMatrix_indicators_2.py：计算混淆矩阵和语义分割的一些指标2（用这个）
