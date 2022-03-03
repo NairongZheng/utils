@@ -28,3 +28,5 @@
 ---
 - cutting_images_2.py：单独切图用这个
 - connecting_images.py：拼图，与cutting_images_2.py相对应
+- change_label_321.py：三通道转单通道
+- change_label_123.py：单通道转三通道
