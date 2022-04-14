@@ -30,3 +30,4 @@
 - connecting_images.py：拼图，与cutting_images_2.py相对应
 - change_label_321.py：三通道转单通道
 - change_label_123.py：单通道转三通道
+- gen_public_dataset.py：生成公开数据集
