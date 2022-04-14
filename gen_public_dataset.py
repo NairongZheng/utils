@@ -101,6 +101,7 @@ def main(args):
         raw_img_shape = big_img.shape                                   # 待切大图的宽, 高, 通道
         row, col, pad_img = gen_pad_img(raw_img_shape, small_img_size)  # 计算行, 列, 并返回padding后的图像尺寸
         pad_img[:raw_img_shape[0], :raw_img_shape[1], :] = big_img
+        del big_img
         cutting_img(row, col, small_img_size, pad_img, region_name, region_num, band, extention, save_path)
 
 if __name__ == '__main__':
