@@ -19,8 +19,8 @@ def parse_arge():
         参数设置
     """
     parser = argparse.ArgumentParser(description='generating public dataset')
-    parser.add_argument('--img_path', help='the path of all band SAR and one label', default=r'D:\code_python\try\bbb')
-    parser.add_argument('--save_path', help='the path of saving img', default=r'D:\code_python\try\output')
+    parser.add_argument('--img_path', help='the path of all band SAR and one label', default=r'E:\try\try')
+    parser.add_argument('--save_path', help='the path of saving img', default=r'D:\项目\data\public_data\wanning_1')
     parser.add_argument('--img_size', help='the size of C image', default=1024)
     args = parser.parse_args()
     return args
@@ -42,12 +42,12 @@ def cal_small_img_size(args, band):
         不同波段分辨率如下:{'C':0.5, 'X':0.5, 'Ka':0.3, 'L':1, 'P':1, 'S':1, 'sxz':0.2, 'label':0.3}
         以C波段设置的小图大小为基准!!!!!!!!!!!!!!!!!!!!!
         如果C设置为1024, 那么其他各波段的大小为:
-        {'C':1024, 'X':1024, 'Ka':1707, 'L':512, 'P':512, 'S':512, 'sxz':2560, 'label':1707}
+        {'C':1024, 'X':1024, 'Ka':1707, 'L':512, 'P':512, 'S':512, 'sxz':2560, 'label':1024}
     """
     resolution = 0.5
-    if band == 'X' or band == 'C':
+    if band == 'X' or band == 'C' or band == 'label':
         rate = resolution / 0.5
-    elif band == 'Ka' or band == 'label':
+    elif band == 'Ka':
         rate = resolution / 0.3
     elif band == 'L' or band == 'P' or band == 'S':
         rate = resolution / 1
