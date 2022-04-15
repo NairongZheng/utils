@@ -53,6 +53,9 @@ def cal_small_img_size(args, band):
         rate = resolution / 1
     elif band == 'sxz':
         rate = resolution / 0.2
+    else:
+        print('band named false!')
+        quit()
     small_img_size = round(args.img_size * rate)
     return small_img_size
 
