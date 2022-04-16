@@ -31,3 +31,4 @@
 - change_label_321.py：三通道转单通道
 - change_label_123.py：单通道转三通道
 - gen_public_dataset.py：生成公开数据集
+- 14and41.py：一张大图切成4张，或者4拼1.（主要是用来标图的，两个代码放一起了）
