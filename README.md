@@ -34,3 +34,4 @@
 - 14and41.py：一张大图切成4张，或者4拼1.（主要是用来标图的，两个代码放一起了）
 ---
 - gen_hyper_SAR.py：多波段合成高光谱SAR
+- gen_hyper_SAR_test.py：从"多光谱"SAR中截取测试区
