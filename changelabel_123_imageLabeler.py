@@ -5,6 +5,7 @@
     data:2021.12.09
 
     you need to replace the "label_path, save_path, label_mapping"
+    方法一方法二都要注意类别的编号和你的标号能不能对上, 因为我用的需要加1, 所以有的没有从0开始
 """
 
 import os
