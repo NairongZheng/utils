@@ -38,3 +38,4 @@
 - cutting_hyper_SAR.py：对"高光谱"SAR切图
     - gdal格式和numpy互转
 - preprocess_hyper：处理高光谱原始图像, 映射到0-255（x）
+- change_model_pytorch.py：把2d的hrnet模型复制转成3d
