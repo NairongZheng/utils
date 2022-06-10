@@ -68,7 +68,6 @@ def main_worker(gpu, args):
     # model_dict.update(pretrained_dict)                  # 更新整个模型的参数
     # model.load_state_dict(model_dict)               # 把更新好的参数加载到模型中
     # model.cuda(args.gpu)
-    print('load model pre-trained done!')
 
 if __name__ == '__main__':
     main()
