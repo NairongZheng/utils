@@ -75,6 +75,8 @@ def chose_points(args, lab_path):
         cls_xy = np.where(lab == k)
         axis = np.array([[x, y] for x, y in zip(cls_xy[0], cls_xy[1])])    # [x, y]
         np.random.shuffle(axis)
+        if len(axis) == 0:
+            continue
         axis = axis[:int(len(axis) * args.ratio), :]
         chose_xy = (axis[:, 0], axis[:, 1])
         chose_point[chose_xy] = 1
