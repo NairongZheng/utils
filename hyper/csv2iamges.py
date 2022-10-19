@@ -25,6 +25,9 @@ def main():
     args = parse_args()
     df = pd.read_csv(args.data_path)
     df = np.array(df)
+    df_max = 6000
+    # plt.hist(df, bins=12)
+    # plt.show()
     for each_item in tqdm(df, total=len(df)):
         h = each_item[0]
         w = each_item[1]
@@ -32,7 +35,8 @@ def main():
         band_val = each_item[2:-1]
         x = [i for i in range(len(band_val))]
         plt.plot(x, band_val)
-        plt.axis('off')
+        plt.ylim(0, df_max)
+        # plt.axis('off')
         name = str(int(h)) + '_' + str(int(w)) + '.png'
         sav_path = os.path.join(args.save_path, str(int(label)))
         if not os.path.exists(sav_path):
