@@ -15,8 +15,8 @@ import numpy as np
 from tqdm import tqdm
 import pandas as pd
 
-label_mapping = {0:[0, 0, 255], 1:[83, 134, 139], 
-                2:[0, 255, 0], 3:[205, 173, 0], 4:[139, 0, 0]}
+label_mapping = {0:[0, 0, 255], 1:[139, 0, 0], 2:[83, 134, 139], 
+                3:[0, 255, 0], 4:[205, 173, 0], 5:[139, 105, 20], 6:[255, 0, 0]}
 
 
 def parse_args():
@@ -94,14 +94,15 @@ def save_csv(args, hyp_path, hwcls):
     band_name = []
     for i in range(img.shape[2]):
         band_name.append('band{}'.format(i + 1))
-    column_name = np.hstack((column_name, band_name, 'label'))
+    column_name = np.hstack((column_name, band_name, 'sum', 'label'))
     # 创建空表
     df = pd.DataFrame()
     for h, w, cls in tqdm(hwcls, total=len(hwcls)):
         pos = np.array([h, w])
         pix = img[h, w, :]
         cls = np.array(cls)
-        each_item = np.hstack((pos, pix, cls))
+        sum_ = np.sum(pix)
+        each_item = np.hstack((pos, pix, sum_, cls))
         each_item = np.expand_dims(each_item, axis=0)
         each_item = pd.DataFrame(each_item)
         df = df.append(each_item, ignore_index=True)
