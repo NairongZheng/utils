@@ -7,6 +7,14 @@ LABEL_PATH = r'E:\try\try'
 SAVE_PATH = r'E:\try\new'
 Image.MAX_IMAGE_PIXELS = None
 
+def three2one(lab):
+    # 可以用这个
+    temp = lab.copy()
+    label_mask = np.zeros((lab.shape[0], lab.shape[1]))
+    for i, (k, v) in enumerate(row_rgb.items()):
+        label_mask[(((temp[:, :, 0] == v[0]) & (temp[:, :, 1] == v[1])) & (temp[:, :, 2] == v[2]))] = int(k)
+    return label_mask
+
 def main():
     labels = os.listdir(LABEL_PATH)
     for label in tqdm(labels, total=len(labels)):
