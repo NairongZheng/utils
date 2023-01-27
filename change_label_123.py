@@ -8,6 +8,14 @@ Image.MAX_IMAGE_PIXELS = None
 LABEL_PATH = r'E:\try\new'
 SAVE_PATH = r'E:\try\aaa'
 
+def one2three(args, lab):
+    # 可以用这个
+    new_label = np.zeros([args.h, args.w, 3])
+    for i, (k, v) in enumerate(new_rgb.items()):
+        locals()['cls' + str(k)] = np.where(lab == k)
+        new_label[eval('cls' + str(k))] = v
+    return new_label
+
 def main():
     labels = os.listdir(LABEL_PATH)
     for i in tqdm(labels, total=len(labels)):
